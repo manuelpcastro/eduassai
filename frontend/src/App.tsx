@@ -6,6 +6,7 @@ import { BeforeAfterPage, CustomBeforeAfterPage } from './modules/before-after/B
 import { ScenarioEditorPage } from './modules/before-after/ScenarioEditorPage'
 import { ScenarioListPage } from './modules/before-after/ScenarioListPage'
 import { HomePage } from './pages/HomePage'
+import { PrivacyPage } from './pages/PrivacyPage'
 
 // HashRouter keeps deep links working on GitHub Pages, which has no
 // server-side fallback to index.html.
@@ -25,6 +26,7 @@ export function AppRoutes() {
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="entrar" element={<LoginPage />} />
+        <Route path="privacidad" element={<PrivacyPage />} />
         <Route path="antes-despues" element={<ScenarioListPage />} />
         <Route path="antes-despues/crear" element={<ScenarioEditorPage />} />
         <Route path="antes-despues/mis/:customId" element={<CustomBeforeAfterPage />} />

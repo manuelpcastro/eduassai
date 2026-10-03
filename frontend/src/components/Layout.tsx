@@ -21,6 +21,10 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="site-footer">
+        <p>
+          <span aria-hidden="true">🔒 </span>
+          {t('privacy.footer')} <Link to="/privacidad">{t('privacy.title')}</Link>
+        </p>
         {t('app.arasaacCredit')}{' '}
         <a href="https://arasaac.org" target="_blank" rel="noreferrer">
           arasaac.org

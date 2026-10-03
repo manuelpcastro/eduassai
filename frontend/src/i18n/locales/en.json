@@ -143,5 +143,27 @@
     "checkEmail": "We have sent you an email. Open the link to activate your account.",
     "signInError": "The email or password is wrong, or the account is not activated yet.",
     "signUpError": "Could not create the account. That email may already be registered."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "footer": "Photos never leave your device.",
+    "more": "More about privacy",
+    "intro": "This site is meant to be used with children. We keep as little as possible.",
+    "photos": {
+      "title": "Photos",
+      "text": "Photos you add stay on this device only and are never uploaded, even when you sign in with an account. If you open the same situation on another device, you will see a notice instead of the photo."
+    },
+    "device": {
+      "title": "Without an account",
+      "text": "You can use every activity without an account. Situations you create are saved in this browser. Clearing the browser data deletes them too."
+    },
+    "account": {
+      "title": "With an account (optional)",
+      "text": "If you create an account, we keep your email so you can sign in, and your situations: the name, the card texts and the chosen pictograms. Only you can see them. You can delete any situation at any time."
+    },
+    "pictograms": {
+      "title": "Pictograms",
+      "text": "To search and show pictograms, your browser connects to ARASAAC (arasaac.org), run by the Government of Aragon."
+    }
   }
 }

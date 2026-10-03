@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from './AuthContext'
 
@@ -45,6 +45,10 @@ export function LoginPage() {
     <div className="auth-page">
       <h1>{mode === 'signIn' ? t('auth.signInTitle') : t('auth.signUpTitle')}</h1>
       <p className="subtitle">{t('auth.intro')}</p>
+      <p className="notice">
+        <span aria-hidden="true">📷 </span>
+        {t('privacy.photos.text')} <Link to="/privacidad">{t('privacy.more')}</Link>
+      </p>
 
       <form className="auth-form" onSubmit={submit}>
         <label className="field">
