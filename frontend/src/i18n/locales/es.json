@@ -143,5 +143,27 @@
     "checkEmail": "Te hemos enviado un correo. Abre el enlace para activar la cuenta.",
     "signInError": "El correo o la contraseña no son correctos, o la cuenta aún no está activada.",
     "signUpError": "No se pudo crear la cuenta. Puede que ese correo ya esté registrado."
+  },
+  "privacy": {
+    "title": "Privacidad",
+    "footer": "Las fotos nunca salen de tu dispositivo.",
+    "more": "Más sobre la privacidad",
+    "intro": "Esta web está pensada para usarse con niños y niñas. Guardamos lo mínimo posible.",
+    "photos": {
+      "title": "Las fotos",
+      "text": "Las fotos que añades se quedan solo en este dispositivo y nunca se suben a internet, tampoco si entras con una cuenta. Si abres la misma situación en otro dispositivo, verás un aviso en lugar de la foto."
+    },
+    "device": {
+      "title": "Sin cuenta",
+      "text": "Puedes usar todas las actividades sin cuenta. Las situaciones que crees se guardan en este navegador. Si borras los datos del navegador, se borran también."
+    },
+    "account": {
+      "title": "Con cuenta (opcional)",
+      "text": "Si creas una cuenta, guardamos tu correo electrónico para que puedas entrar, y tus situaciones: el nombre, los textos de las tarjetas y los pictogramas elegidos. Solo tú puedes verlas. Puedes borrar cualquier situación cuando quieras."
+    },
+    "pictograms": {
+      "title": "Pictogramas",
+      "text": "Para buscar y mostrar pictogramas, tu navegador se conecta a ARASAAC (arasaac.org), del Gobierno de Aragón."
+    }
   }
 }
