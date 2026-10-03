@@ -1,7 +1,7 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { BeforeAfterGame } from './BeforeAfterGame'
-import { useCustomScenarios } from './customScenarios'
+import { useSituations } from './situations'
 import { SCENARIOS, toPlayable } from './scenarios'
 import type { PlayableScenario } from './types'
 
@@ -23,8 +23,10 @@ export function BeforeAfterPage() {
 /** Plays one of the situations created on this device. */
 export function CustomBeforeAfterPage() {
   const { customId } = useParams()
-  const custom = useCustomScenarios()
-  return <GameScreen scenarios={custom} currentId={customId} pathFor={(id) => `${LIST_PATH}/mis/${id}`} />
+  const { t } = useTranslation()
+  const { status, items } = useSituations()
+  if (status === 'loading') return <p className="loading">{t('app.loading')}</p>
+  return <GameScreen scenarios={items} currentId={customId} pathFor={(id) => `${LIST_PATH}/mis/${id}`} />
 }
 
 interface GameScreenProps {

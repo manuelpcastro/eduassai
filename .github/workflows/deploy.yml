@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -11,11 +11,44 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: deploy
+  cancel-in-progress: false
 
 jobs:
-  build:
+  # The API on Cloudflare Workers. The checks always run; migrating and
+  # deploying only happen once the Cloudflare and database secrets are set
+  # (see docs/backend.md), so the site keeps deploying before that.
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Apply database migrations
+        if: env.DATABASE_URL != '' && env.CLOUDFLARE_API_TOKEN != ''
+        run: npm run db:migrate
+      - name: Deploy API
+        if: env.DATABASE_URL != '' && env.CLOUDFLARE_API_TOKEN != ''
+        run: |
+          npx wrangler deploy --var "SUPABASE_URL:$SUPABASE_URL"
+          printf '%s' "$DATABASE_URL" | npx wrangler secret put DATABASE_URL
+
+  frontend:
+    needs: backend
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -33,12 +66,17 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+          # Accounts switch on only when all three are set; otherwise the site
+          # works without accounts and saves on the device.
+          VITE_SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          VITE_SUPABASE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+          VITE_API_URL: ${{ vars.API_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
 
-  deploy:
-    needs: build
+  pages:
+    needs: frontend
     runs-on: ubuntu-latest
     environment:
       name: github-pages

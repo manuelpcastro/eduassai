@@ -1,14 +1,26 @@
 {
   "name": "EduAssAI",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "postCreateCommand": "cd frontend && npm ci",
-  "forwardPorts": [5173],
+  "postCreateCommand": "cd frontend && npm ci && cd ../backend && npm ci",
+  "forwardPorts": [
+    5173,
+    8787
+  ],
   "portsAttributes": {
-    "5173": { "label": "EduAssAI (dev)", "onAutoForward": "openBrowser" }
+    "5173": {
+      "label": "EduAssAI (dev)",
+      "onAutoForward": "openBrowser"
+    },
+    "8787": {
+      "label": "EduAssAI API (dev)",
+      "onAutoForward": "silent"
+    }
   },
   "customizations": {
     "vscode": {
-      "extensions": ["oxc.oxc-vscode"]
+      "extensions": [
+        "oxc.oxc-vscode"
+      ]
     }
   }
 }

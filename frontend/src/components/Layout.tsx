@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { AccountButton } from '../auth/AccountButton'
 import { LanguageSelect } from './LanguageSelect'
 
 export function Layout() {
@@ -11,7 +12,10 @@ export function Layout() {
           <span aria-hidden="true">🏠</span> {t('app.home')}
         </Link>
         <span className="brand">{t('app.name')}</span>
-        <LanguageSelect />
+        <div className="top-bar-end">
+          <AccountButton />
+          <LanguageSelect />
+        </div>
       </header>
       <main className="page">
         <Outlet />

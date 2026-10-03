@@ -14,8 +14,9 @@ The interface is in **Spanish** by default and supports other languages
 | --- | --- | --- |
 | Antes y después | `#/antes-despues` | The child puts two everyday actions in order (for example, socks before shoes). Cards can be read aloud with the 🔊 button. Parents and teachers can create their own situations with ARASAAC pictograms or their own photos (`#/antes-despues/crear`). |
 
-Custom situations are stored in the browser (localStorage) on the device where
-they were made; there's no backend yet to sync them.
+Accounts are optional. Without one, custom situations are saved in the
+browser; signed-in users get them saved privately in their account. See
+[docs/backend.md](docs/backend.md).
 
 ## Pictograms
 
@@ -30,17 +31,25 @@ non-commercial use only, with attribution (shown in the site footer).
 ## Project layout
 
 ```
-frontend/                 React + TypeScript app (Vite)
+frontend/                 React + TypeScript app (Vite), deployed to GitHub Pages
   src/i18n/               i18next setup and translations (locales/es.json, en.json)
+  src/auth/               Optional sign-in (Supabase Auth)
+  src/data/               Saving records: to the account (API) or the device
   src/components/         Shared UI (layout, language picker, read-aloud button)
   src/modules/<module>/   One folder per learning module
   src/pages/              Top-level pages (home)
-.github/workflows/        CI and the GitHub Pages deployment
+backend/                  API (Hono + PostgreSQL), deployed to Cloudflare Workers
+  src/collections.ts      Which records each module can store, and their schemas
+  src/routes/             HTTP endpoints
+  src/db/                 Database schema and connection (Drizzle ORM)
+  drizzle/                Database migrations
+docs/                     Architecture and setup notes
+.github/workflows/        CI and deployment
 .devcontainer/            GitHub Codespaces / Dev Containers setup
 ```
 
-There's no backend yet. When one is needed it can live in a `backend/`
-folder next to `frontend/`.
+The backend, its data model and the one-time setup are described in
+[docs/backend.md](docs/backend.md).
 
 ## Development
 
@@ -53,6 +62,10 @@ npm run dev        # start the app with live reload
 npm test           # run the tests
 npm run lint       # check the code
 npm run build      # production build into frontend/dist
+
+cd backend
+npm run dev        # start the API on http://localhost:8787
+npm test           # run the API tests (in-memory Postgres)
 ```
 
 To work locally instead, install Node.js 22 and run the same commands.
@@ -66,12 +79,13 @@ To work locally instead, install Node.js 22 and run the same commands.
   it in `LANGUAGES` in `frontend/src/i18n/index.ts`. A test checks that every
   language has the same keys as Spanish.
 - **A new module:** create a folder under `src/modules/`, add its routes in
-  `src/App.tsx`, and add a tile to `MODULES` in `src/pages/HomePage.tsx`.
+  `src/App.tsx`, and add a tile to `MODULES` in `src/pages/HomePage.tsx`. If it
+  saves data, see "Data model" in [docs/backend.md](docs/backend.md).
 
 ## Deployment (GitHub Pages)
 
-Every push to `main` runs the tests, builds the site and publishes it to
-`https://<user>.github.io/eduassai/`.
+Every push to `main` runs the tests, deploys the API (once configured), builds
+the site and publishes it to `https://<user>.github.io/eduassai/`.
 
 One-time setup: in the repository go to **Settings → Pages** and set
 **Source** to **GitHub Actions**.
