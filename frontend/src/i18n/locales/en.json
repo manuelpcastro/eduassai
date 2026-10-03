@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "EduAssAI",
+    "home": "Home",
+    "language": "Language"
+  },
+  "home": {
+    "title": "What shall we do today?",
+    "subtitle": "Choose an activity."
+  },
+  "modules": {
+    "beforeAfter": {
+      "title": "Before and after",
+      "description": "Put in order what happens first and what happens next."
+    }
+  },
+  "beforeAfter": {
+    "chooseTitle": "Before and after",
+    "chooseSubtitle": "Choose a situation.",
+    "before": "Before",
+    "after": "After",
+    "instruction": "What happens before? What happens after?",
+    "emptySlot": "Tap a card",
+    "slotLabel": "{{slot}} space",
+    "slotWith": "{{slot}}: {{text}}. Tap to remove.",
+    "cardsLabel": "Cards",
+    "correct": "Well done!",
+    "correctDetail": "First {{before}}. Then {{after}}.",
+    "tryAgain": "Almost. Let's try again.",
+    "retry": "Try again",
+    "next": "Next",
+    "allDone": "You finished them all!",
+    "backToList": "Back to the list",
+    "progress": "{{current}} of {{total}}",
+    "listen": "Listen",
+    "listenItem": "Listen: {{text}}"
+  },
+  "scenarios": {
+    "socksShoes": { "title": "Getting dressed", "before": "Put on socks", "after": "Put on shoes" },
+    "washEat": { "title": "Eating", "before": "Wash hands", "after": "Eat" },
+    "wakeBreakfast": { "title": "In the morning", "before": "Wake up", "after": "Have breakfast" },
+    "eatBrush": { "title": "Teeth", "before": "Eat", "after": "Brush teeth" },
+    "coatOutside": { "title": "Going out", "before": "Put on a coat", "after": "Go outside" },
+    "doorHome": { "title": "Getting home", "before": "Open the door", "after": "Go into the house" },
+    "fillDrink": { "title": "Drinking", "before": "Fill the glass", "after": "Drink water" },
+    "seedFlower": { "title": "Plants", "before": "Plant the seed", "after": "The flower grows" }
+  }
+}

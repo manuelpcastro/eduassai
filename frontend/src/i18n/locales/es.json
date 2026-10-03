@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "EduAssAI",
+    "home": "Inicio",
+    "language": "Idioma"
+  },
+  "home": {
+    "title": "¿Qué hacemos hoy?",
+    "subtitle": "Elige una actividad."
+  },
+  "modules": {
+    "beforeAfter": {
+      "title": "Antes y después",
+      "description": "Ordenar lo que pasa primero y lo que pasa luego."
+    }
+  },
+  "beforeAfter": {
+    "chooseTitle": "Antes y después",
+    "chooseSubtitle": "Elige una situación.",
+    "before": "Antes",
+    "after": "Después",
+    "instruction": "¿Qué pasa antes? ¿Qué pasa después?",
+    "emptySlot": "Toca una tarjeta",
+    "slotLabel": "Hueco {{slot}}",
+    "slotWith": "{{slot}}: {{text}}. Toca para quitar.",
+    "cardsLabel": "Tarjetas",
+    "correct": "¡Muy bien!",
+    "correctDetail": "Primero {{before}}. Después {{after}}.",
+    "tryAgain": "Casi. Vamos a probar otra vez.",
+    "retry": "Otra vez",
+    "next": "Siguiente",
+    "allDone": "¡Has terminado todas!",
+    "backToList": "Volver a la lista",
+    "progress": "{{current}} de {{total}}",
+    "listen": "Escuchar",
+    "listenItem": "Escuchar: {{text}}"
+  },
+  "scenarios": {
+    "socksShoes": { "title": "Vestirse", "before": "Ponerse los calcetines", "after": "Ponerse los zapatos" },
+    "washEat": { "title": "Comer", "before": "Lavarse las manos", "after": "Comer" },
+    "wakeBreakfast": { "title": "Por la mañana", "before": "Despertarse", "after": "Desayunar" },
+    "eatBrush": { "title": "Los dientes", "before": "Comer", "after": "Lavarse los dientes" },
+    "coatOutside": { "title": "Salir", "before": "Ponerse el abrigo", "after": "Salir a la calle" },
+    "doorHome": { "title": "Llegar a casa", "before": "Abrir la puerta", "after": "Entrar en casa" },
+    "fillDrink": { "title": "Beber", "before": "Llenar el vaso", "after": "Beber agua" },
+    "seedFlower": { "title": "Las plantas", "before": "Plantar la semilla", "after": "Crece la flor" }
+  }
+}
