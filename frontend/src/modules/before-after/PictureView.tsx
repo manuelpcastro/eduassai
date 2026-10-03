@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { findPictogram, pictogramUrl } from '../../lib/arasaac'
+import { getPhoto } from '../../lib/photos'
 import type { Picture } from './types'
 
 interface Props {
@@ -14,8 +15,12 @@ export function PictureView({ picture, className = '' }: Props) {
       return <Emoji emoji={picture.emoji} className={className} />
     case 'arasaac':
       return <img className={`picture ${className}`} src={pictogramUrl(picture.id)} alt="" />
-    case 'photo':
-      return <img className={`picture picture-photo ${className}`} src={picture.src} alt="" />
+    case 'photo': {
+      const src = 'src' in picture ? picture.src : getPhoto(picture.photoId)
+      // Photos stay on the device where they were added.
+      if (!src) return <Emoji emoji="📷" className={`picture-missing ${className}`} />
+      return <img className={`picture picture-photo ${className}`} src={src} alt="" />
+    }
     case 'arasaacSearch':
       return <SearchedPictogram keywords={picture.keywords} emoji={picture.emoji} className={className} />
   }

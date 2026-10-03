@@ -115,7 +115,9 @@
     "saveError": "Could not save: storage is full. Try deleting a situation or using pictograms instead of photos.",
     "storageNote": "Saved only on this device. Sign in (optional) to have it on all your devices.",
     "saveErrorAccount": "Could not save. Check the internet connection and try again.",
-    "storageAccount": "Saved in your account. Only you can see it."
+    "storageAccount": "Saved in your account. Only you can see it.",
+    "photoPrivacy": "Photos stay on this device only. They are never uploaded.",
+    "photoMissing": "This photo is on another device. Choose another picture."
   },
   "account": {
     "savedOnDevice": "They are saved only on this device for now.",

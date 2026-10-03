@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { newRecordId } from '../../data/records'
+import { deletePhoto, getPhoto } from '../../lib/photos'
 import { useSituations, type CustomScenario } from './situations'
 import { StepEditor, type StepDraft } from './StepEditor'
+import { photoIds } from './types'
 
 const EMPTY: StepDraft = { text: '', picture: null }
 
@@ -30,7 +32,9 @@ function Editor({ existing }: { existing: CustomScenario | undefined }) {
   const [saveError, setSaveError] = useState(false)
   const [busy, setBusy] = useState(false)
 
-  const isReady = (s: StepDraft) => s.text.trim() !== '' && s.picture !== null
+  const hasPicture = (p: StepDraft['picture']) =>
+    p !== null && !(p.kind === 'photo' && 'photoId' in p && getPhoto(p.photoId) === null)
+  const isReady = (s: StepDraft) => s.text.trim() !== '' && hasPicture(s.picture)
   const canSave = isReady(before) && isReady(after)
 
   async function save() {
@@ -38,13 +42,17 @@ function Editor({ existing }: { existing: CustomScenario | undefined }) {
     const id = existing?.id ?? newRecordId()
     setBusy(true)
     setSaveError(false)
+    const situation = {
+      id,
+      title: title.trim() || t('editor.defaultTitle'),
+      before: { text: before.text.trim(), picture: before.picture },
+      after: { text: after.text.trim(), picture: after.picture },
+    }
     try {
-      await situations.save({
-        id,
-        title: title.trim() || t('editor.defaultTitle'),
-        before: { text: before.text.trim(), picture: before.picture },
-        after: { text: after.text.trim(), picture: after.picture },
-      })
+      await situations.save(situation)
+      // Drop photos this situation no longer uses.
+      const kept = photoIds(situation)
+      if (existing) photoIds(existing).filter((p) => !kept.includes(p)).forEach(deletePhoto)
     } catch {
       setSaveError(true)
       setBusy(false)
@@ -58,6 +66,7 @@ function Editor({ existing }: { existing: CustomScenario | undefined }) {
     setBusy(true)
     try {
       await situations.remove(existing.id)
+      photoIds(existing).forEach(deletePhoto)
       navigate('/antes-despues')
     } catch {
       setSaveError(true)

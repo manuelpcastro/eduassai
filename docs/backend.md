@@ -127,7 +127,13 @@ the Supabase values.
 
 ## Privacy
 
-Signed-in users' situations, including any photos, are stored in Supabase.
-Before sharing the site widely, add a privacy notice explaining what is stored,
-where, and how to delete it. If children's photos are expected, decide whether
-those should stay on the device only.
+**Photos never leave the device.** A photo added to a situation is stored in
+that browser only (`frontend/src/lib/photos.ts`). Records hold just the photo's
+id, even when saved to an account, and the API rejects any record that carries
+image data. On another device the card shows a placeholder, and the editor asks
+for a new picture.
+
+What signed-in users store in Supabase is their email (for signing in) and
+their records: situation titles, card texts and ARASAAC pictogram numbers.
+Before sharing the site widely, add a privacy notice saying so, and how to
+delete an account.

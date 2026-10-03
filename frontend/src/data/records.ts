@@ -10,6 +10,12 @@ export interface Collection {
   kind: string
   /** localStorage key used in device mode. Defaults to eduassai.records.<module>.<kind>. */
   deviceKey?: string
+  /**
+   * Adjusts a device record before it is moved into an account, e.g. to keep
+   * device-only content (photos) out of what gets uploaded.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  prepareForAccount?: (record: any) => any
 }
 
 export interface StoredRecord {
@@ -130,7 +136,8 @@ export async function moveDeviceRecords<T extends StoredRecord>(c: Collection, t
   const device = deviceStore<T>(c)
   for (const record of await device.list()) {
     // Fresh ids: older device records may not be UUIDs.
-    await target.save({ ...record, id: newRecordId() })
+    const prepared = c.prepareForAccount ? (c.prepareForAccount(record) as T) : record
+    await target.save({ ...prepared, id: newRecordId() })
     await device.remove(record.id)
   }
 }

@@ -15,7 +15,8 @@ The interface is in **Spanish** by default and supports other languages
 | Antes y después | `#/antes-despues` | The child puts two everyday actions in order (for example, socks before shoes). Cards can be read aloud with the 🔊 button. Parents and teachers can create their own situations with ARASAAC pictograms or their own photos (`#/antes-despues/crear`). |
 
 Accounts are optional. Without one, custom situations are saved in the
-browser; signed-in users get them saved privately in their account. See
+browser; signed-in users get them saved privately in their account. Photos
+always stay on the device where they were added and are never uploaded. See
 [docs/backend.md](docs/backend.md).
 
 ## Pictograms

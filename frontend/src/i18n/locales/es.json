@@ -115,7 +115,9 @@
     "saveError": "No se pudo guardar: no queda espacio. Prueba a borrar alguna situación o a usar pictogramas en vez de fotos.",
     "storageNote": "Se guarda solo en este dispositivo. Entra con tu cuenta (opcional) para tenerlo en todos tus dispositivos.",
     "saveErrorAccount": "No se pudo guardar. Revisa la conexión a internet e inténtalo otra vez.",
-    "storageAccount": "Se guarda en tu cuenta. Solo tú puedes verlo."
+    "storageAccount": "Se guarda en tu cuenta. Solo tú puedes verlo.",
+    "photoPrivacy": "Las fotos se quedan solo en este dispositivo. No se suben a internet.",
+    "photoMissing": "Esta foto está en otro dispositivo. Elige otra imagen."
   },
   "account": {
     "savedOnDevice": "Ahora se guardan solo en este dispositivo.",
