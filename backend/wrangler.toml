@@ -1,0 +1,19 @@
+# Cloudflare Workers configuration for the EduAssAI API.
+# Secrets are not stored here; set them with `npx wrangler secret put <NAME>`
+# (or let the GitHub workflow do it): DATABASE_URL, and SUPABASE_JWT_SECRET only
+# for projects on legacy JWT secrets.
+name = "eduassai-api"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ALLOWED_ORIGINS = "https://manuelpcastro.github.io,http://localhost:5173"
+# Filled in by the deploy workflow from the SUPABASE_URL repository variable.
+SUPABASE_URL = ""
+
+[triggers]
+crons = ["17 6 * * *"]
+
+[observability]
+enabled = true

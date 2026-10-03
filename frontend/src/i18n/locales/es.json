@@ -3,7 +3,8 @@
     "name": "EduAssAI",
     "home": "Inicio",
     "language": "Idioma",
-    "arasaacCredit": "Pictogramas: Sergio Palao. Origen: ARASAAC. Licencia: CC BY-NC-SA. Propiedad: Gobierno de Aragón (España)."
+    "arasaacCredit": "Pictogramas: Sergio Palao. Origen: ARASAAC. Licencia: CC BY-NC-SA. Propiedad: Gobierno de Aragón (España).",
+    "loading": "Cargando…"
   },
   "home": {
     "title": "¿Qué hacemos hoy?",
@@ -112,6 +113,33 @@
     "delete": "Borrar",
     "confirmDelete": "¿Borrar esta situación?",
     "saveError": "No se pudo guardar: no queda espacio. Prueba a borrar alguna situación o a usar pictogramas en vez de fotos.",
-    "storageNote": "Las situaciones se guardan solo en este dispositivo y navegador."
+    "storageNote": "Se guarda solo en este dispositivo. Entra con tu cuenta (opcional) para tenerlo en todos tus dispositivos.",
+    "saveErrorAccount": "No se pudo guardar. Revisa la conexión a internet e inténtalo otra vez.",
+    "storageAccount": "Se guarda en tu cuenta. Solo tú puedes verlo."
+  },
+  "account": {
+    "savedOnDevice": "Ahora se guardan solo en este dispositivo.",
+    "signInToSave": "Entra para guardarlas en tu cuenta (opcional).",
+    "deviceItems_one": "Tienes {{count}} situación guardada solo en este dispositivo.",
+    "deviceItems_other": "Tienes {{count}} situaciones guardadas solo en este dispositivo.",
+    "moveToAccount": "Pasarlas a mi cuenta",
+    "moveError": "No se pudieron pasar. Inténtalo otra vez.",
+    "loadError": "No se pudieron cargar tus situaciones. Revisa la conexión a internet."
+  },
+  "auth": {
+    "signInTitle": "Entrar",
+    "signUpTitle": "Crear una cuenta",
+    "intro": "La cuenta es opcional. Sirve para guardar tus situaciones de forma privada y usarlas en cualquier dispositivo.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "passwordHint": "Al menos 8 caracteres.",
+    "signIn": "Entrar",
+    "signUp": "Crear cuenta",
+    "signOut": "Salir",
+    "noAccount": "¿No tienes cuenta?",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "checkEmail": "Te hemos enviado un correo. Abre el enlace para activar la cuenta.",
+    "signInError": "El correo o la contraseña no son correctos, o la cuenta aún no está activada.",
+    "signUpError": "No se pudo crear la cuenta. Puede que ese correo ya esté registrado."
   }
 }

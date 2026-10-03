@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
 import i18n from '../i18n'
-import { resetCustomScenarioCache } from '../modules/before-after/customScenarios'
+import { clearRecordCache } from '../data/useRecords'
 
 // Never reach the real ARASAAC API from tests; individual tests can override.
 beforeEach(() => {
@@ -12,7 +12,7 @@ beforeEach(() => {
 afterEach(async () => {
   cleanup()
   localStorage.clear()
-  resetCustomScenarioCache()
+  clearRecordCache()
   vi.unstubAllGlobals()
   await i18n.changeLanguage('es')
 })

@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import { CustomBeforeAfterPage } from './BeforeAfterPage'
-import { listCustomScenarios } from './customScenarios'
 import { ScenarioEditorPage } from './ScenarioEditorPage'
 
 function mockArasaac() {
@@ -50,7 +49,7 @@ describe('ScenarioEditorPage', () => {
 
     await userEvent.click(save)
 
-    const [saved] = listCustomScenarios()
+    const [saved] = JSON.parse(localStorage.getItem('eduassai.beforeAfter.custom')!)
     expect(saved).toMatchObject({
       title: 'A dormir',
       before: { text: 'Pijama', picture: { kind: 'arasaac', id: 101 } },
