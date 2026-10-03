@@ -5,7 +5,9 @@ export type Picture =
   | { kind: 'arasaac'; id: number }
   /** Look up an ARASAAC pictogram by keyword; show the emoji if none is found. */
   | { kind: 'arasaacSearch'; keywords: readonly string[]; emoji: string }
-  /** A photo from the device, stored as a data URL. */
+  /** A photo kept only on this device (src/lib/photos.ts); never uploaded. */
+  | { kind: 'photo'; photoId: string }
+  /** Older device-only format with the photo inline. Still shown; never uploaded. */
   | { kind: 'photo'; src: string }
 
 export interface PlayableStep {
@@ -19,4 +21,9 @@ export interface PlayableScenario {
   title: string
   before: PlayableStep
   after: PlayableStep
+}
+
+/** Ids of the device photos a scenario uses. */
+export function photoIds(s: Pick<PlayableScenario, 'before' | 'after'>): string[] {
+  return [s.before.picture, s.after.picture].flatMap((p) => (p.kind === 'photo' && 'photoId' in p ? [p.photoId] : []))
 }

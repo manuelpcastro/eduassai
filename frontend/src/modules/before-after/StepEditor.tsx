@@ -2,6 +2,7 @@ import { useId, useRef, useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { pictogramUrl, searchPictograms, type PictogramResult } from '../../lib/arasaac'
 import { resizeImage } from '../../lib/images'
+import { getPhoto, savePhoto } from '../../lib/photos'
 import { PictureView } from './PictureView'
 import type { Picture } from './types'
 
@@ -37,6 +38,8 @@ export function StepEditor({ step, value, onChange }: Props) {
   const [photoError, setPhotoError] = useState(false)
   const fileInput = useRef<HTMLInputElement>(null)
   const label = t(`beforeAfter.${step}`)
+  const photoMissing =
+    value.picture?.kind === 'photo' && 'photoId' in value.picture && getPhoto(value.picture.photoId) === null
 
   async function runSearch(e: FormEvent) {
     e.preventDefault()
@@ -63,7 +66,7 @@ export function StepEditor({ step, value, onChange }: Props) {
     if (!file) return
     setPhotoError(false)
     try {
-      onChange({ ...value, picture: { kind: 'photo', src: await resizeImage(file) } })
+      onChange({ ...value, picture: { kind: 'photo', photoId: savePhoto(await resizeImage(file)) } })
     } catch {
       setPhotoError(true)
     }
@@ -82,6 +85,7 @@ export function StepEditor({ step, value, onChange }: Props) {
           <span className="step-preview-empty">{t('editor.noPicture')}</span>
         )}
       </div>
+      {photoMissing && <p className="form-message">{t('editor.photoMissing')}</p>}
 
       <label className="field">
         <span className="field-label">{t('editor.cardText')}</span>
@@ -156,7 +160,8 @@ export function StepEditor({ step, value, onChange }: Props) {
             e.target.value = ''
           }}
         />
-        {photoError && <p className="search-status">{t('editor.photoError')}</p>}
+        <p className="search-status">{t('editor.photoPrivacy')}</p>
+        {photoError && <p className="form-message">{t('editor.photoError')}</p>}
       </div>
     </section>
   )

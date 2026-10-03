@@ -20,7 +20,7 @@ let privateKey: CryptoKey
 const situation = {
   title: 'A dormir',
   before: { text: 'Ponerse el pijama', picture: { kind: 'arasaac', id: 2462 } },
-  after: { text: 'Dormir', picture: { kind: 'photo', src: 'data:image/jpeg;base64,AAAA' } },
+  after: { text: 'Dormir', picture: { kind: 'photo', photoId: '33333333-3333-4333-8333-333333333333' } },
 }
 
 async function token(sub: string, overrides: { issuer?: string; key?: CryptoKey } = {}) {
@@ -113,7 +113,12 @@ describe('API', () => {
     const bad = [
       { ...situation, title: '' },
       { ...situation, extra: true },
-      { ...situation, before: { text: 'x', picture: { kind: 'photo', src: 'https://example.com/x.jpg' } } },
+      // Photos must never be uploaded, only referenced.
+      { ...situation, before: { text: 'x', picture: { kind: 'photo', src: 'data:image/jpeg;base64,AAAA' } } },
+      {
+        ...situation,
+        before: { text: 'x', picture: { kind: 'photo', photoId: '33333333-3333-4333-8333-333333333333', src: 'data:' } },
+      },
     ]
     for (const data of bad) {
       expect((await call('PUT', `${base}/${id(2)}`, ALICE, { data })).status).toBe(400)

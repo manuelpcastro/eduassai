@@ -713,3 +713,7 @@ h2 {
     padding: 0 0.6rem;
   }
 }
+
+.picture-missing {
+  opacity: 0.5;
+}

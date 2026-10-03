@@ -14,13 +14,9 @@ export interface CollectionDef {
 const picture = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('arasaac'), id: z.number().int().positive() }).strict(),
   z.object({ kind: z.literal('emoji'), emoji: z.string().min(1).max(16) }).strict(),
-  z
-    .object({
-      kind: z.literal('photo'),
-      // Photos are small JPEG data URLs, resized in the browser.
-      src: z.string().startsWith('data:image/').max(400_000),
-    })
-    .strict(),
+  // Photos stay on the user's device: only a reference to them is stored here,
+  // and anything carrying image data is rejected.
+  z.object({ kind: z.literal('photo'), photoId: z.uuid() }).strict(),
 ])
 
 const step = z.object({ text: z.string().trim().min(1).max(80), picture }).strict()
