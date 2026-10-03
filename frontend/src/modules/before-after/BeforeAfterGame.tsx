@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SpeakButton } from '../../components/SpeakButton'
 import { clearSlot, evaluate, newGame, placeCard, resetSlots, type Step } from './game'
-import type { Scenario } from './scenarios'
+import { PictureView } from './PictureView'
+import type { PlayableScenario } from './types'
 
 interface Props {
-  scenario: Scenario
+  scenario: PlayableScenario
   /** Called when the child presses "Next" after a correct answer. */
   onNext: () => void
   isLast: boolean
@@ -19,8 +20,7 @@ export function BeforeAfterGame({ scenario, onNext, isLast }: Props) {
   const result = evaluate(state)
   const locked = result !== 'incomplete'
 
-  const text = (step: Step) => t(`scenarios.${scenario.id}.${step}`)
-  const emoji = (step: Step) => (step === 'before' ? scenario.beforeEmoji : scenario.afterEmoji)
+  const text = (step: Step) => scenario[step].text
 
   return (
     <div className="game">
@@ -50,9 +50,7 @@ export function BeforeAfterGame({ scenario, onNext, isLast }: Props) {
                     onClick={() => setState((s) => clearSlot(s, index as 0 | 1))}
                     aria-label={t('beforeAfter.slotWith', { slot: slotName, text: text(placed) })}
                   >
-                    <span className="card-emoji" aria-hidden="true">
-                      {emoji(placed)}
-                    </span>
+                    <PictureView picture={scenario[placed].picture} className="card-picture" />
                     <span className="card-text">{text(placed)}</span>
                   </button>
                 ) : (
@@ -82,9 +80,7 @@ export function BeforeAfterGame({ scenario, onNext, isLast }: Props) {
                     disabled={locked}
                     onClick={() => setState((s) => placeCard(s, step))}
                   >
-                    <span className="card-emoji" aria-hidden="true">
-                      {emoji(step)}
-                    </span>
+                    <PictureView picture={scenario[step].picture} className="card-picture" />
                     <span className="card-text">{text(step)}</span>
                   </button>
                   <SpeakButton text={text(step)} className="card-speak" />

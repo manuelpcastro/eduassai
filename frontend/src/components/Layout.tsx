@@ -16,6 +16,12 @@ export function Layout() {
       <main className="page">
         <Outlet />
       </main>
+      <footer className="site-footer">
+        {t('app.arasaacCredit')}{' '}
+        <a href="https://arasaac.org" target="_blank" rel="noreferrer">
+          arasaac.org
+        </a>
+      </footer>
     </>
   )
 }

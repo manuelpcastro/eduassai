@@ -2,7 +2,8 @@
   "app": {
     "name": "EduAssAI",
     "home": "Inicio",
-    "language": "Idioma"
+    "language": "Idioma",
+    "arasaacCredit": "Pictogramas: Sergio Palao. Origen: ARASAAC. Licencia: CC BY-NC-SA. Propiedad: Gobierno de Aragón (España)."
   },
   "home": {
     "title": "¿Qué hacemos hoy?",
@@ -16,7 +17,7 @@
   },
   "beforeAfter": {
     "chooseTitle": "Antes y después",
-    "chooseSubtitle": "Elige una situación.",
+    "chooseSubtitle": "Elige una situación o crea una nueva.",
     "before": "Antes",
     "after": "Después",
     "instruction": "¿Qué pasa antes? ¿Qué pasa después?",
@@ -33,16 +34,84 @@
     "backToList": "Volver a la lista",
     "progress": "{{current}} de {{total}}",
     "listen": "Escuchar",
-    "listenItem": "Escuchar: {{text}}"
+    "listenItem": "Escuchar: {{text}}",
+    "mySituations": "Mis situaciones",
+    "examples": "Situaciones de ejemplo",
+    "create": "Crear una situación",
+    "createHint": "Elige tú las imágenes de antes y después.",
+    "edit": "Editar"
   },
   "scenarios": {
-    "socksShoes": { "title": "Vestirse", "before": "Ponerse los calcetines", "after": "Ponerse los zapatos" },
-    "washEat": { "title": "Comer", "before": "Lavarse las manos", "after": "Comer" },
-    "wakeBreakfast": { "title": "Por la mañana", "before": "Despertarse", "after": "Desayunar" },
-    "eatBrush": { "title": "Los dientes", "before": "Comer", "after": "Lavarse los dientes" },
-    "coatOutside": { "title": "Salir", "before": "Ponerse el abrigo", "after": "Salir a la calle" },
-    "doorHome": { "title": "Llegar a casa", "before": "Abrir la puerta", "after": "Entrar en casa" },
-    "fillDrink": { "title": "Beber", "before": "Llenar el vaso", "after": "Beber agua" },
-    "seedFlower": { "title": "Las plantas", "before": "Plantar la semilla", "after": "Crece la flor" }
+    "socksShoes": {
+      "title": "Vestirse",
+      "before": "Ponerse los calcetines",
+      "after": "Ponerse los zapatos"
+    },
+    "washEat": {
+      "title": "Comer",
+      "before": "Lavarse las manos",
+      "after": "Comer"
+    },
+    "wakeBreakfast": {
+      "title": "Por la mañana",
+      "before": "Despertarse",
+      "after": "Desayunar"
+    },
+    "eatBrush": {
+      "title": "Los dientes",
+      "before": "Comer",
+      "after": "Lavarse los dientes"
+    },
+    "coatOutside": {
+      "title": "Salir",
+      "before": "Ponerse el abrigo",
+      "after": "Salir a la calle"
+    },
+    "doorHome": {
+      "title": "Llegar a casa",
+      "before": "Abrir la puerta",
+      "after": "Entrar en casa"
+    },
+    "fillDrink": {
+      "title": "Beber",
+      "before": "Llenar el vaso",
+      "after": "Beber agua"
+    },
+    "seedFlower": {
+      "title": "Las plantas",
+      "before": "Plantar la semilla",
+      "after": "Crece la flor"
+    }
+  },
+  "editor": {
+    "createTitle": "Crear una situación",
+    "editTitle": "Editar la situación",
+    "intro": "Elige una imagen y escribe un texto corto para lo que pasa antes y para lo que pasa después.",
+    "situationName": "Nombre de la situación (opcional)",
+    "situationPlaceholder": "Ej.: Ir al colegio",
+    "defaultTitle": "Mi situación",
+    "noPicture": "Sin imagen",
+    "cardText": "Texto de la tarjeta",
+    "textPlaceholder": {
+      "before": "Ej.: Ponerse el pijama",
+      "after": "Ej.: Ir a dormir"
+    },
+    "searchLabel": "Buscar un pictograma de ARASAAC",
+    "searchPlaceholder": "Ej.: zapatos",
+    "search": "Buscar",
+    "searching": "Buscando…",
+    "noResults": "No hay pictogramas con esa palabra. Prueba con otra.",
+    "searchError": "No se pudo conectar con ARASAAC. Revisa la conexión a internet.",
+    "resultsLabel": "Pictogramas para {{step}}",
+    "orPhoto": "O usa una foto tuya",
+    "usePhoto": "Elegir foto",
+    "photoError": "No se pudo abrir esa imagen.",
+    "missing": "Falta elegir una imagen y escribir un texto para antes y para después.",
+    "save": "Guardar y practicar",
+    "cancel": "Cancelar",
+    "delete": "Borrar",
+    "confirmDelete": "¿Borrar esta situación?",
+    "saveError": "No se pudo guardar: no queda espacio. Prueba a borrar alguna situación o a usar pictogramas en vez de fotos.",
+    "storageNote": "Las situaciones se guardan solo en este dispositivo y navegador."
   }
 }

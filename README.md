@@ -12,7 +12,20 @@ The interface is in **Spanish** by default and supports other languages
 
 | Module | Route | What it does |
 | --- | --- | --- |
-| Antes y después | `#/antes-despues` | The child puts two everyday actions in order (for example, socks before shoes). Cards can be read aloud with the 🔊 button. |
+| Antes y después | `#/antes-despues` | The child puts two everyday actions in order (for example, socks before shoes). Cards can be read aloud with the 🔊 button. Parents and teachers can create their own situations with ARASAAC pictograms or their own photos (`#/antes-despues/crear`). |
+
+Custom situations are stored in the browser (localStorage) on the device where
+they were made; there's no backend yet to sync them.
+
+## Pictograms
+
+Pictures come from [ARASAAC](https://arasaac.org) through its public API,
+called directly from the browser. The built-in situations look pictograms up by
+keyword (see `scenarios.ts`) and fall back to an emoji when offline.
+
+ARASAAC pictograms are by Sergio Palao, owned by the Government of Aragon and
+licensed [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/):
+non-commercial use only, with attribution (shown in the site footer).
 
 ## Project layout
 

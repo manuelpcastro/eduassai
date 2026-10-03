@@ -164,6 +164,214 @@ select {
   font-size: 0.9rem;
 }
 
+h2 {
+  font-size: 1.3rem;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.tile-pictures {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+}
+
+.tile-picture {
+  width: 72px;
+  height: 72px;
+  font-size: 3rem;
+}
+
+.tile-create {
+  border-style: dashed;
+  justify-content: center;
+}
+
+.tile-with-action {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tile-with-action .tile {
+  flex: 1;
+}
+
+.tile-action {
+  align-self: center;
+  padding: 0.5rem 0.9rem;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Editor ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.field input {
+  font: inherit;
+  min-height: 52px;
+  padding: 0 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  width: 100%;
+}
+
+.field-title {
+  max-width: 480px;
+  margin-bottom: 1.25rem;
+}
+
+.editor-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.step-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 3px solid;
+  border-radius: var(--radius);
+}
+
+.step-editor .slot-label {
+  margin: 0;
+}
+
+.step-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 2px solid var(--border);
+}
+
+.step-preview-empty {
+  color: var(--muted);
+}
+
+.search-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-height: 52px;
+  padding: 0 1.1rem;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary-button.danger {
+  color: #8a3b2e;
+}
+
+.search-status,
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.hint {
+  margin-top: 1rem;
+}
+
+.picto-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 0.5rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.picto-option {
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 6px;
+  background: var(--surface);
+  border: 3px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.picto-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.picto-option.is-selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.photo-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.editor-actions .search-status {
+  flex-basis: 100%;
+}
+
+.action-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.site-footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
 /* ---------- Game ---------- */
 
 .game-header {
@@ -304,9 +512,26 @@ select {
   flex: 1;
 }
 
-.card-emoji {
-  font-size: 3.5rem;
+.picture {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.picture-emoji {
   line-height: 1;
+}
+
+.picture-photo {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-picture {
+  width: 120px;
+  height: 120px;
+  font-size: 4.5rem;
 }
 
 .card-text {
@@ -384,12 +609,21 @@ select {
   .card-placeholder {
     min-height: 140px;
   }
-  .card-emoji {
-    font-size: 2.6rem;
+  .card-picture {
+    width: 84px;
+    height: 84px;
+    font-size: 3.2rem;
   }
   /* Leave room for the speak button so it doesn't cover the picture. */
   .card-wrap .card {
     padding-top: 3.4rem;
+  }
+  .editor-steps {
+    grid-template-columns: 1fr;
+  }
+  .tile-picture {
+    width: 60px;
+    height: 60px;
   }
 }
 
