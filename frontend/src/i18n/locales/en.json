@@ -2,7 +2,8 @@
   "app": {
     "name": "EduAssAI",
     "home": "Home",
-    "language": "Language"
+    "language": "Language",
+    "arasaacCredit": "Pictograms: Sergio Palao. Source: ARASAAC. Licence: CC BY-NC-SA. Owner: Government of Aragon (Spain)."
   },
   "home": {
     "title": "What shall we do today?",
@@ -16,7 +17,7 @@
   },
   "beforeAfter": {
     "chooseTitle": "Before and after",
-    "chooseSubtitle": "Choose a situation.",
+    "chooseSubtitle": "Choose a situation or create a new one.",
     "before": "Before",
     "after": "After",
     "instruction": "What happens before? What happens after?",
@@ -33,16 +34,84 @@
     "backToList": "Back to the list",
     "progress": "{{current}} of {{total}}",
     "listen": "Listen",
-    "listenItem": "Listen: {{text}}"
+    "listenItem": "Listen: {{text}}",
+    "mySituations": "My situations",
+    "examples": "Example situations",
+    "create": "Create a situation",
+    "createHint": "Choose the before and after pictures yourself.",
+    "edit": "Edit"
   },
   "scenarios": {
-    "socksShoes": { "title": "Getting dressed", "before": "Put on socks", "after": "Put on shoes" },
-    "washEat": { "title": "Eating", "before": "Wash hands", "after": "Eat" },
-    "wakeBreakfast": { "title": "In the morning", "before": "Wake up", "after": "Have breakfast" },
-    "eatBrush": { "title": "Teeth", "before": "Eat", "after": "Brush teeth" },
-    "coatOutside": { "title": "Going out", "before": "Put on a coat", "after": "Go outside" },
-    "doorHome": { "title": "Getting home", "before": "Open the door", "after": "Go into the house" },
-    "fillDrink": { "title": "Drinking", "before": "Fill the glass", "after": "Drink water" },
-    "seedFlower": { "title": "Plants", "before": "Plant the seed", "after": "The flower grows" }
+    "socksShoes": {
+      "title": "Getting dressed",
+      "before": "Put on socks",
+      "after": "Put on shoes"
+    },
+    "washEat": {
+      "title": "Eating",
+      "before": "Wash hands",
+      "after": "Eat"
+    },
+    "wakeBreakfast": {
+      "title": "In the morning",
+      "before": "Wake up",
+      "after": "Have breakfast"
+    },
+    "eatBrush": {
+      "title": "Teeth",
+      "before": "Eat",
+      "after": "Brush teeth"
+    },
+    "coatOutside": {
+      "title": "Going out",
+      "before": "Put on a coat",
+      "after": "Go outside"
+    },
+    "doorHome": {
+      "title": "Getting home",
+      "before": "Open the door",
+      "after": "Go into the house"
+    },
+    "fillDrink": {
+      "title": "Drinking",
+      "before": "Fill the glass",
+      "after": "Drink water"
+    },
+    "seedFlower": {
+      "title": "Plants",
+      "before": "Plant the seed",
+      "after": "The flower grows"
+    }
+  },
+  "editor": {
+    "createTitle": "Create a situation",
+    "editTitle": "Edit the situation",
+    "intro": "Choose a picture and write a short text for what happens before and what happens after.",
+    "situationName": "Situation name (optional)",
+    "situationPlaceholder": "E.g. Going to school",
+    "defaultTitle": "My situation",
+    "noPicture": "No picture",
+    "cardText": "Card text",
+    "textPlaceholder": {
+      "before": "E.g. Put on pyjamas",
+      "after": "E.g. Go to sleep"
+    },
+    "searchLabel": "Search for an ARASAAC pictogram",
+    "searchPlaceholder": "E.g. shoes",
+    "search": "Search",
+    "searching": "Searching…",
+    "noResults": "No pictograms for that word. Try another one.",
+    "searchError": "Could not connect to ARASAAC. Check the internet connection.",
+    "resultsLabel": "Pictograms for {{step}}",
+    "orPhoto": "Or use your own photo",
+    "usePhoto": "Choose photo",
+    "photoError": "That image could not be opened.",
+    "missing": "Choose a picture and write a text for both before and after.",
+    "save": "Save and practise",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirmDelete": "Delete this situation?",
+    "saveError": "Could not save: storage is full. Try deleting a situation or using pictograms instead of photos.",
+    "storageNote": "Situations are saved only on this device and browser."
   }
 }
