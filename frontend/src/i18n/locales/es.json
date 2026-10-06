@@ -43,16 +43,6 @@
     "edit": "Editar"
   },
   "scenarios": {
-    "socksShoes": {
-      "title": "Vestirse",
-      "before": "Ponerse los calcetines",
-      "after": "Ponerse los zapatos"
-    },
-    "washEat": {
-      "title": "Comer",
-      "before": "Lavarse las manos",
-      "after": "Comer"
-    },
     "wakeBreakfast": {
       "title": "Por la mañana",
       "before": "Despertarse",
@@ -62,21 +52,6 @@
       "title": "Los dientes",
       "before": "Comer",
       "after": "Lavarse los dientes"
-    },
-    "coatOutside": {
-      "title": "Salir",
-      "before": "Ponerse el abrigo",
-      "after": "Salir a la calle"
-    },
-    "doorHome": {
-      "title": "Llegar a casa",
-      "before": "Abrir la puerta",
-      "after": "Entrar en casa"
-    },
-    "fillDrink": {
-      "title": "Beber",
-      "before": "Llenar el vaso",
-      "after": "Beber agua"
     },
     "seedFlower": {
       "title": "Las plantas",

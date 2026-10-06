@@ -19,16 +19,6 @@ export interface Scenario {
 
 export const SCENARIOS: Scenario[] = [
   {
-    id: 'socksShoes',
-    before: { keywords: ['ponerse los calcetines', 'calcetines'], emoji: '🧦' },
-    after: { keywords: ['ponerse los zapatos', 'zapatos'], emoji: '👟' },
-  },
-  {
-    id: 'washEat',
-    before: { keywords: ['lavarse las manos', 'lavar las manos'], emoji: '🧼' },
-    after: { keywords: ['comer'], emoji: '🍽️' },
-  },
-  {
     id: 'wakeBreakfast',
     before: { keywords: ['despertarse', 'despertar'], emoji: '⏰' },
     after: { keywords: ['desayunar'], emoji: '🥣' },
@@ -37,21 +27,6 @@ export const SCENARIOS: Scenario[] = [
     id: 'eatBrush',
     before: { keywords: ['comer'], emoji: '🍎' },
     after: { keywords: ['lavarse los dientes', 'cepillarse los dientes'], emoji: '🪥' },
-  },
-  {
-    id: 'coatOutside',
-    before: { keywords: ['ponerse el abrigo', 'abrigo'], emoji: '🧥' },
-    after: { keywords: ['salir a la calle', 'salir'], emoji: '🌳' },
-  },
-  {
-    id: 'doorHome',
-    before: { keywords: ['abrir la puerta', 'abrir'], emoji: '🚪' },
-    after: { keywords: ['entrar en casa', 'entrar'], emoji: '🏠' },
-  },
-  {
-    id: 'fillDrink',
-    before: { keywords: ['llenar el vaso', 'llenar'], emoji: '🚰' },
-    after: { keywords: ['beber agua', 'beber'], emoji: '🥛' },
   },
   {
     id: 'seedFlower',
