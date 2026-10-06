@@ -67,7 +67,7 @@
     "seedFlower": {
       "title": "Las plantas",
       "before": "Plantar la semilla",
-      "after": "Ver crecer la flor"
+      "after": "Crece la flor"
     }
   },
   "editor": {
