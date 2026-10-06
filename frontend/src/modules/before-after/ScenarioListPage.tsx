@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../auth/AuthContext'
+import { modeSuffix, useMode, type Mode } from './mode'
 import { PictureView } from './PictureView'
 import { SCENARIOS, toPlayable } from './scenarios'
 import { useSituations } from './situations'
@@ -12,6 +13,8 @@ export function ScenarioListPage() {
   const auth = useAuth()
   const situations = useSituations()
   const [moving, setMoving] = useState<'idle' | 'busy' | 'error'>('idle')
+  const [mode, setMode] = useMode()
+  const suffix = modeSuffix(mode)
 
   async function moveToAccount() {
     setMoving('busy')
@@ -27,6 +30,22 @@ export function ScenarioListPage() {
     <>
       <h1>{t('beforeAfter.chooseTitle')}</h1>
       <p className="subtitle">{t('beforeAfter.chooseSubtitle')}</p>
+
+      <div className="mode-picker" role="radiogroup" aria-label={t('beforeAfter.mode.label')}>
+        {(['practice', 'present'] as Mode[]).map((m) => (
+          <button
+            key={m}
+            type="button"
+            role="radio"
+            aria-checked={mode === m}
+            className={`mode-option ${mode === m ? 'is-selected' : ''}`}
+            onClick={() => setMode(m)}
+          >
+            <span className="mode-title">{t(`beforeAfter.mode.${m}`)}</span>
+            <span className="mode-text">{t(`beforeAfter.mode.${m}Hint`)}</span>
+          </button>
+        ))}
+      </div>
 
       <h2>{t('beforeAfter.mySituations')}</h2>
 
@@ -52,7 +71,7 @@ export function ScenarioListPage() {
       <ul className="tile-grid">
         {situations.items.map((s) => (
           <li key={s.id} className="tile-with-action">
-            <ScenarioTile scenario={s} to={`/antes-despues/mis/${s.id}`} />
+            <ScenarioTile scenario={s} to={`/antes-despues/mis/${s.id}${suffix}`} />
             <Link to={`/antes-despues/mis/${s.id}/editar`} className="tile-action">
               <span aria-hidden="true">✏️ </span>
               {t('beforeAfter.edit')}
@@ -75,7 +94,7 @@ export function ScenarioListPage() {
       <ul className="tile-grid">
         {SCENARIOS.map((s) => (
           <li key={s.id}>
-            <ScenarioTile scenario={toPlayable(s, t)} to={`/antes-despues/${s.id}`} />
+            <ScenarioTile scenario={toPlayable(s, t)} to={`/antes-despues/${s.id}${suffix}`} />
           </li>
         ))}
       </ul>

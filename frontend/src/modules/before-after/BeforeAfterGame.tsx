@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SpeakButton } from '../../components/SpeakButton'
 import { clearSlot, evaluate, newGame, placeCard, resetSlots, type Step } from './game'
 import { PictureView } from './PictureView'
+import { fullSentence } from './sentence'
 import type { PlayableScenario } from './types'
 
 interface Props {
@@ -98,11 +99,9 @@ export function BeforeAfterGame({ scenario, onNext, isLast }: Props) {
               <span aria-hidden="true">⭐ </span>
               {t('beforeAfter.correct')}
             </p>
-            <p>
-              {t('beforeAfter.correctDetail', {
-                before: text('before').toLowerCase(),
-                after: text('after').toLowerCase(),
-              })}
+            <p className="sentence-row">
+              {fullSentence(t, scenario)}
+              <SpeakButton text={fullSentence(t, scenario)} />
             </p>
             <button type="button" className="action-button" onClick={onNext}>
               {isLast ? t('beforeAfter.backToList') : t('beforeAfter.next')} <span aria-hidden="true">➜</span>

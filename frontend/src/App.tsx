@@ -29,9 +29,11 @@ export function AppRoutes() {
         <Route path="privacidad" element={<PrivacyPage />} />
         <Route path="antes-despues" element={<ScenarioListPage />} />
         <Route path="antes-despues/crear" element={<ScenarioEditorPage />} />
-        <Route path="antes-despues/mis/:customId" element={<CustomBeforeAfterPage />} />
+        <Route path="antes-despues/mis/:customId" element={<CustomBeforeAfterPage mode="practice" />} />
+        <Route path="antes-despues/mis/:customId/presentar" element={<CustomBeforeAfterPage mode="present" />} />
         <Route path="antes-despues/mis/:customId/editar" element={<ScenarioEditorPage />} />
-        <Route path="antes-despues/:scenarioId" element={<BeforeAfterPage />} />
+        <Route path="antes-despues/:scenarioId" element={<BeforeAfterPage mode="practice" />} />
+        <Route path="antes-despues/:scenarioId/presentar" element={<BeforeAfterPage mode="present" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

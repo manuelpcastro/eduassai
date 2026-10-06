@@ -12,22 +12,21 @@
   },
   "modules": {
     "beforeAfter": {
-      "title": "Before and after",
-      "description": "Put in order what happens first and what happens next."
+      "title": "Now and next",
+      "description": "See what happens now and what comes next."
     }
   },
   "beforeAfter": {
-    "chooseTitle": "Before and after",
+    "chooseTitle": "Now and next",
     "chooseSubtitle": "Choose a situation or create a new one.",
-    "before": "Before",
-    "after": "After",
-    "instruction": "What happens before? What happens after?",
+    "before": "Now",
+    "after": "Next",
+    "instruction": "What is it time for now? What comes next?",
     "emptySlot": "Tap a card",
     "slotLabel": "{{slot}} space",
     "slotWith": "{{slot}}: {{text}}. Tap to remove.",
     "cardsLabel": "Cards",
     "correct": "Well done!",
-    "correctDetail": "First {{before}}. Then {{after}}.",
     "tryAgain": "Almost. Let's try again.",
     "retry": "Try again",
     "next": "Next",
@@ -39,8 +38,20 @@
     "mySituations": "My situations",
     "examples": "Example situations",
     "create": "Create a situation",
-    "createHint": "Choose the before and after pictures yourself.",
-    "edit": "Edit"
+    "createHint": "Choose the now and next pictures yourself.",
+    "edit": "Edit",
+    "sentence": "Now it's time to {{before}}, then {{after}}.",
+    "sentenceNow": "Now it's time to {{text}}.",
+    "sentenceAfter": "Then, {{text}}.",
+    "mode": {
+      "label": "Mode",
+      "practice": "🧩 Practise",
+      "practiceHint": "The child places the cards.",
+      "present": "👀 Present",
+      "presentHint": "Shown already in order, to explain it.",
+      "practiceAction": "🧩 Practise",
+      "presentAction": "👀 Present"
+    }
   },
   "scenarios": {
     "wakeBreakfast": {
@@ -56,21 +67,21 @@
     "seedFlower": {
       "title": "Plants",
       "before": "Plant the seed",
-      "after": "The flower grows"
+      "after": "Watch the flower grow"
     }
   },
   "editor": {
     "createTitle": "Create a situation",
     "editTitle": "Edit the situation",
-    "intro": "Choose a picture and write a short text for what happens before and what happens after.",
+    "intro": "Choose a picture and write a short text for what happens now and what comes next.",
     "situationName": "Situation name (optional)",
     "situationPlaceholder": "E.g. Going to school",
     "defaultTitle": "My situation",
     "noPicture": "No picture",
     "cardText": "Card text",
     "textPlaceholder": {
-      "before": "E.g. Put on pyjamas",
-      "after": "E.g. Go to sleep"
+      "before": "E.g. Wash hands",
+      "after": "E.g. Eat"
     },
     "searchLabel": "Search for an ARASAAC pictogram",
     "searchPlaceholder": "E.g. shoes",
@@ -82,7 +93,7 @@
     "orPhoto": "Or use your own photo",
     "usePhoto": "Choose photo",
     "photoError": "That image could not be opened.",
-    "missing": "Choose a picture and write a text for both before and after.",
+    "missing": "Choose a picture and write a text for both now and next.",
     "save": "Save and practise",
     "cancel": "Cancel",
     "delete": "Delete",
