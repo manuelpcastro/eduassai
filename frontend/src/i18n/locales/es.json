@@ -12,22 +12,21 @@
   },
   "modules": {
     "beforeAfter": {
-      "title": "Antes y después",
-      "description": "Ordenar lo que pasa primero y lo que pasa luego."
+      "title": "Ahora y después",
+      "description": "Ver qué toca ahora y qué toca después."
     }
   },
   "beforeAfter": {
-    "chooseTitle": "Antes y después",
+    "chooseTitle": "Ahora y después",
     "chooseSubtitle": "Elige una situación o crea una nueva.",
-    "before": "Antes",
+    "before": "Ahora",
     "after": "Después",
-    "instruction": "¿Qué pasa antes? ¿Qué pasa después?",
+    "instruction": "¿Qué toca ahora? ¿Qué toca después?",
     "emptySlot": "Toca una tarjeta",
     "slotLabel": "Hueco {{slot}}",
     "slotWith": "{{slot}}: {{text}}. Toca para quitar.",
     "cardsLabel": "Tarjetas",
     "correct": "¡Muy bien!",
-    "correctDetail": "Primero {{before}}. Después {{after}}.",
     "tryAgain": "Casi. Vamos a probar otra vez.",
     "retry": "Otra vez",
     "next": "Siguiente",
@@ -39,8 +38,20 @@
     "mySituations": "Mis situaciones",
     "examples": "Situaciones de ejemplo",
     "create": "Crear una situación",
-    "createHint": "Elige tú las imágenes de antes y después.",
-    "edit": "Editar"
+    "createHint": "Elige tú las imágenes de ahora y después.",
+    "edit": "Editar",
+    "sentence": "Ahora toca {{before}}, después {{after}}.",
+    "sentenceNow": "Ahora toca {{text}}.",
+    "sentenceAfter": "Después, {{text}}.",
+    "mode": {
+      "label": "Modo",
+      "practice": "🧩 Practicar",
+      "practiceHint": "El niño o la niña coloca las tarjetas.",
+      "present": "👀 Presentar",
+      "presentHint": "Se muestra ya ordenado, para explicarlo.",
+      "practiceAction": "🧩 Practicar",
+      "presentAction": "👀 Presentar"
+    }
   },
   "scenarios": {
     "wakeBreakfast": {
@@ -56,21 +67,21 @@
     "seedFlower": {
       "title": "Las plantas",
       "before": "Plantar la semilla",
-      "after": "Crece la flor"
+      "after": "Ver crecer la flor"
     }
   },
   "editor": {
     "createTitle": "Crear una situación",
     "editTitle": "Editar la situación",
-    "intro": "Elige una imagen y escribe un texto corto para lo que pasa antes y para lo que pasa después.",
+    "intro": "Elige una imagen y escribe un texto corto para lo que toca ahora y para lo que toca después.",
     "situationName": "Nombre de la situación (opcional)",
     "situationPlaceholder": "Ej.: Ir al colegio",
     "defaultTitle": "Mi situación",
     "noPicture": "Sin imagen",
     "cardText": "Texto de la tarjeta",
     "textPlaceholder": {
-      "before": "Ej.: Ponerse el pijama",
-      "after": "Ej.: Ir a dormir"
+      "before": "Ej.: Lavarse las manos",
+      "after": "Ej.: Comer"
     },
     "searchLabel": "Buscar un pictograma de ARASAAC",
     "searchPlaceholder": "Ej.: zapatos",
@@ -82,7 +93,7 @@
     "orPhoto": "O usa una foto tuya",
     "usePhoto": "Elegir foto",
     "photoError": "No se pudo abrir esa imagen.",
-    "missing": "Falta elegir una imagen y escribir un texto para antes y para después.",
+    "missing": "Falta elegir una imagen y escribir un texto para ahora y para después.",
     "save": "Guardar y practicar",
     "cancel": "Cancelar",
     "delete": "Borrar",

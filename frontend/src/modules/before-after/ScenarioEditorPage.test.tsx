@@ -21,7 +21,7 @@ function renderEditor() {
     <MemoryRouter initialEntries={['/antes-despues/crear']}>
       <Routes>
         <Route path="/antes-despues/crear" element={<ScenarioEditorPage />} />
-        <Route path="/antes-despues/mis/:customId" element={<CustomBeforeAfterPage />} />
+        <Route path="/antes-despues/mis/:customId" element={<CustomBeforeAfterPage mode="practice" />} />
       </Routes>
     </MemoryRouter>,
   )
@@ -41,11 +41,11 @@ describe('ScenarioEditorPage', () => {
     expect(save).toBeDisabled()
 
     await userEvent.type(screen.getByLabelText(/Nombre de la situación/), 'A dormir')
-    await pickPictogram(screen.getByRole('region', { name: 'Antes' }), 'pijama')
+    await pickPictogram(screen.getByRole('region', { name: 'Ahora' }), 'pijama')
     await pickPictogram(screen.getByRole('region', { name: 'Después' }), 'dormir')
 
     // The keyword fills in the card text when it was empty.
-    expect(within(screen.getByRole('region', { name: 'Antes' })).getByDisplayValue('Pijama')).toBeInTheDocument()
+    expect(within(screen.getByRole('region', { name: 'Ahora' })).getByDisplayValue('Pijama')).toBeInTheDocument()
 
     await userEvent.click(save)
 
@@ -62,7 +62,7 @@ describe('ScenarioEditorPage', () => {
   it('explains when ARASAAC cannot be reached', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => Promise.reject(new TypeError('offline'))))
     renderEditor()
-    const before = screen.getByRole('region', { name: 'Antes' })
+    const before = screen.getByRole('region', { name: 'Ahora' })
     await userEvent.type(within(before).getByRole('searchbox'), 'zapatos')
     await userEvent.click(within(before).getByRole('button', { name: /Buscar/ }))
     expect(await within(before).findByText(/No se pudo conectar con ARASAAC/)).toBeInTheDocument()

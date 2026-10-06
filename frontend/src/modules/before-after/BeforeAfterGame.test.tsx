@@ -17,6 +17,7 @@ describe('BeforeAfterGame', () => {
     await userEvent.click(screen.getByRole('button', { name: /Desayunar/ }))
 
     expect(screen.getByText('¡Muy bien!')).toBeInTheDocument()
+    expect(screen.getByText('Ahora toca despertarse, después desayunar.')).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: /Siguiente/ }))
     expect(onNext).toHaveBeenCalled()
   })
@@ -36,7 +37,7 @@ describe('BeforeAfterGame', () => {
     render(<BeforeAfterGame scenario={playable()} onNext={() => {}} isLast={false} />)
 
     await userEvent.click(screen.getByRole('button', { name: /Desayunar/ }))
-    await userEvent.click(screen.getByRole('button', { name: /Antes: Desayunar/ }))
+    await userEvent.click(screen.getByRole('button', { name: /Ahora: Desayunar/ }))
     expect(screen.getAllByText('Toca una tarjeta')).toHaveLength(2)
   })
 
@@ -44,6 +45,6 @@ describe('BeforeAfterGame', () => {
     await i18n.changeLanguage('en')
     render(<BeforeAfterGame scenario={playable()} onNext={() => {}} isLast={false} />)
     expect(screen.getByRole('button', { name: /Wake up/ })).toBeInTheDocument()
-    expect(screen.getByText('Before')).toBeInTheDocument()
+    expect(screen.getByText('Now')).toBeInTheDocument()
   })
 })

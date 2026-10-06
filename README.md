@@ -12,7 +12,7 @@ The interface is in **Spanish** by default and supports other languages
 
 | Module | Route | What it does |
 | --- | --- | --- |
-| Antes y después | `#/antes-despues` | The child puts two everyday actions in order (for example, waking up before having breakfast). Cards can be read aloud with the 🔊 button. Parents and teachers can create their own situations with ARASAAC pictograms or their own photos (`#/antes-despues/crear`). |
+| Ahora y después | `#/antes-despues` | Two everyday actions in order: what happens now and what comes next (for example, "Ahora toca despertarse, después desayunar"). **Practicar**: the child places the cards. **Presentar**: shown already in order for a teacher or parent to explain, with the whole sentence read aloud. Parents and teachers can create their own situations with ARASAAC pictograms or their own photos (`#/antes-despues/crear`). |
 
 Accounts are optional. Without one, custom situations are saved in the
 browser; signed-in users get them saved privately in their account. Photos
