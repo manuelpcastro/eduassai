@@ -43,16 +43,6 @@
     "edit": "Edit"
   },
   "scenarios": {
-    "socksShoes": {
-      "title": "Getting dressed",
-      "before": "Put on socks",
-      "after": "Put on shoes"
-    },
-    "washEat": {
-      "title": "Eating",
-      "before": "Wash hands",
-      "after": "Eat"
-    },
     "wakeBreakfast": {
       "title": "In the morning",
       "before": "Wake up",
@@ -62,21 +52,6 @@
       "title": "Teeth",
       "before": "Eat",
       "after": "Brush teeth"
-    },
-    "coatOutside": {
-      "title": "Going out",
-      "before": "Put on a coat",
-      "after": "Go outside"
-    },
-    "doorHome": {
-      "title": "Getting home",
-      "before": "Open the door",
-      "after": "Go into the house"
-    },
-    "fillDrink": {
-      "title": "Drinking",
-      "before": "Fill the glass",
-      "after": "Drink water"
     },
     "seedFlower": {
       "title": "Plants",
