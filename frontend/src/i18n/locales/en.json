@@ -67,7 +67,7 @@
     "seedFlower": {
       "title": "Plants",
       "before": "Plant the seed",
-      "after": "Watch the flower grow"
+      "after": "The flower grows"
     }
   },
   "editor": {
